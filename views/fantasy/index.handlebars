@@ -2,34 +2,49 @@
 <div class="container">
 
     <div class="jumbotron" id="jumbo">
-        <h1 class="text-center">Can I Take Your Order?</h1>
+        <h1 class="text-center">Who Should You Pick?</h1>
         <hr>
-        <h3 class="text-center">All Types of fantasys!</h3>
-        <h3 class="text-center">Any Way You Want It!</h3>
+        <h3 class="text-center">Compare players here!</h3>
         <br>
 
     </div>
 </div>
 {{#if username}}
-    Welcome {{username}}! Make some fantasys.
+    Welcome {{username}}! Make some comparisons.
 {{/if}}
 
 {{#unless logged_in}}
-    <p> Sign up to add your fantasys!! </p>
+    <form class="create-update-form" id="signin" action="/users/login" method="POST">
+
+        <div class="form-group">
+            <label for="em">Email:</label>
+            <input type="text" id="em" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password">
+        </div>
+
+        <button type="submit">Sign In</button>
+    </form>
+    <br>
+    <p> Sign in to get help picking your fantasy team! </p>
+    <p> If you don't have an account, sign up now! </p>
 {{/unless}}
 
 {{#if logged_in}}
     <div class="container">
         <div class="col-md-12">
-            <h2>Add a fantasy</h2>
+            <h2>Add a Player</h2>
             <form class="create-update-form" action="fantasy/create" method="POST">
 
                 <div class="form-group" id="add">
-                    <label for="ca">fantasy Name:</label>
+                    <label for="ca">Player Name:</label>
                     <input type="text" id="ca" name="fantasy_name">
                 </div>
 
-                <button id="addB" type="submit">Add fantasy</button>
+                <button id="addB" type="submit">Add Player</button>
             </form>
         </div>
 

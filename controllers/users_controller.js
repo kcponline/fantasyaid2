@@ -14,8 +14,8 @@ router.get('/sign-in', function(req,res) {
 
 router.get('/sign-out', function(req,res) {
   req.session.destroy(function(err) {
-     res.redirect('/')
-  })
+     res.redirect('/');
+ });
 });
 
 
@@ -25,8 +25,8 @@ router.post('/login', function(req, res) {
     where: {email: req.body.email}
   }).then(function(user) {
 
-		if (user == null){
-			res.redirect('/users/sign-in')
+		if (user === null){
+			res.redirect('/users/sign-in');
 		}
 
 		// Solution:
@@ -36,7 +36,7 @@ router.post('/login', function(req, res) {
 		// If the result is true,
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
         // if the result is true (and thus pass and hash match)
-        if (result == true){
+        if (result === true){
 
         	// save the user's information
 					// to req.session, as the comments below show
@@ -58,10 +58,10 @@ router.post('/login', function(req, res) {
         // if the result is anything but true (password invalid)
         else{
         	// redirect user to sign in
-					res.redirect('/users/sign-in')
+					res.redirect('/users/sign-in');
 				}
     });
-  })
+});
 });
 
 
@@ -72,8 +72,8 @@ router.post('/create', function(req,res) {
   }).then(function(users) {
 
 		if (users.length > 0){
-			console.log(users)
-			res.send('we already have an email or username for this account')
+			console.log(users);
+			res.send('we already have an email or username for this account');
 		}else{
 
 			// Solution:
@@ -109,7 +109,7 @@ router.post('/create', function(req,res) {
 		          req.session.user_email = user.email;
 
 		          // redirect to home on login
-							res.redirect('/')
+							res.redirect('/');
 						});
 					});
 			});
