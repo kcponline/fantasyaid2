@@ -22,7 +22,7 @@
 <ul>
   {{#each people}}
     <li>
-      {{this.fantasy_name}}
+      {{this.player_name}}
       {{#if ../logged_in}}
         <a href="/people/{{this.id}}/destroy"> destroy</a>
       {{/if}}

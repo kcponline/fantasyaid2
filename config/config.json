@@ -1,11 +1,10 @@
 {
   "development": {
-    "host": "localhost",
     "username": "root",
     "password": "jiggy13",
-    "database": "fantasyaid_db",
+    "database": "fantasy_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
-
   },
   "test": {
     "username": "root",

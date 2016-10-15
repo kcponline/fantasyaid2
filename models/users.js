@@ -1,30 +1,24 @@
 "use strict";
 
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
-    email: DataTypes.STRING,
-    password_hash: DataTypes.STRING
-  }, {
-
-    underscored: true,
-
-    freezeTableName: true,
-
-    // define the table's name
-    tableName: 'users',
-
-    classMethods: {
-      associate: function(models) {
-        User.hasMany(models.Fantasy, {
-          onDelete: "CASCADE",
-          hooks: true,
-          foreignKey: {
-            allowNull: false
-          }
+module.exports = {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface
+      .createTable('users', {
+        id: {
+          type: Sequelize.INTEGER,
+          autoIncrement: true,
+          primaryKey: true
+        },
+        username: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password_hash: Sequelize.STRING,
+        created_at: Sequelize.DATE,
+        updated_at: Sequelize.DATE
       });
-      }
-    }
-});
+  },
 
-  return User;
+  down: function(queryInterface, Sequelize) {
+    return queryInterface
+      .dropTable('users');
+  }
 };

@@ -30,7 +30,8 @@
     </form>
     <br>
     <p> Sign in to get help picking your fantasy team! </p>
-    <p> If you don't have an account, sign up now! </p>
+    <p> If you don't have an account, sign up now! </p><br>
+    <a href="/users/new" class="su">Sign Up</a>
 {{/unless}}
 
 {{#if logged_in}}
@@ -41,7 +42,7 @@
 
                 <div class="form-group" id="add">
                     <label for="ca">Player Name:</label>
-                    <input type="text" id="ca" name="fantasy_name">
+                    <input type="text" id="ca" name="player_name">
                 </div>
 
                 <button id="addB" type="submit">Add Player</button>
@@ -53,12 +54,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>fantasy Order List</h2>
+                <h2>Player A</h2>
                 <ul>
                     {{#each fantasy}}
                         {{#unless this.devoured}}
                             <li>
-                                {{this.fantasy_name}}
+                                {{this.player_name}}
 
                                 <form action="fantasy/update/{{this.id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="true">
@@ -71,13 +72,13 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <h2>fantasys That Have Been Devoured!</h2>
+                <h2>Player B</h2>
 
                 <ul>
                     {{#each fantasy}}
                         {{#if this.devoured}}
                             <li>
-                                {{this.fantasy_name}}
+                                {{this.player_name}}
 
                                 <form action="fantasy/update/{{this.id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="false">
