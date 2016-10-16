@@ -1,6 +1,7 @@
+
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var d_rank = sequelize.define('d_rank', { 
+  var d_rank = sequelize.define('d_rank', {
     Team: DataTypes.STRING,
     PassYardsPerGame: DataTypes.FLOAT,
     PassYardsPerGameRank: DataTypes.FLOAT,
@@ -20,4 +21,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   return d_rank;
+
 };

@@ -1,11 +1,10 @@
 {
   "development": {
-    "host": "localhost",
     "username": "root",
     "password": "jiggy13",
-    "database": "burgers_with_sequelize_db",
+    "database": "fantasyaid_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
-
   },
   "test": {
     "username": "root",

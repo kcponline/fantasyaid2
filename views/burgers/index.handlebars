@@ -15,7 +15,28 @@
 {{/if}}
 
 {{#unless logged_in}}
+<<<<<<< HEAD:views/burgers/index.handlebars
     <p> Sign up to add your burgers!! </p>
+=======
+    <form class="create-update-form" id="signin" action="/users/login" method="POST">
+
+        <div class="form-group">
+            <label for="em">Email:</label>
+            <input type="text" id="em" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password">
+        </div>
+
+        <button type="submit">Sign In</button>
+    </form>
+    <br>
+    <p> Sign in to get help picking your fantasy team! </p>
+    <p> If you don't have an account, sign up now! </p><br>
+    <a href="/users/new" class="su">Sign Up</a>
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
 {{/unless}}
 
 {{#if logged_in}}
@@ -25,8 +46,13 @@
             <form class="create-update-form" action="burgers/create" method="POST">
 
                 <div class="form-group" id="add">
+<<<<<<< HEAD:views/burgers/index.handlebars
                     <label for="ca">Burger Name:</label>
                     <input type="text" id="ca" name="burger_name">
+=======
+                    <label for="ca">Player Name:</label>
+                    <input type="text" id="ca" name="player_name">
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
                 </div>
 
                 <button id="addB" type="submit">Add Burger</button>
@@ -38,12 +64,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+<<<<<<< HEAD:views/burgers/index.handlebars
                 <h2>Burger Order List</h2>
+=======
+                <h2>Player A</h2>
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
                 <ul>
                     {{#each burgers}}
                         {{#unless this.devoured}}
                             <li>
+<<<<<<< HEAD:views/burgers/index.handlebars
                                 {{this.burger_name}}
+=======
+                                {{this.player_name}}
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
 
                                 <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="true">
@@ -56,13 +90,21 @@
                 </ul>
             </div>
             <div class="col-md-6">
+<<<<<<< HEAD:views/burgers/index.handlebars
                 <h2>Burgers That Have Been Devoured!</h2>
+=======
+                <h2>Player B</h2>
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
 
                 <ul>
                     {{#each burgers}}
                         {{#if this.devoured}}
                             <li>
+<<<<<<< HEAD:views/burgers/index.handlebars
                                 {{this.burger_name}}
+=======
+                                {{this.player_name}}
+>>>>>>> f9e1b24423652c27debd14590cabe1ecdfc3929a:views/fantasy/index.handlebars
 
                                 <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="false">

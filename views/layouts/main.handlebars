@@ -10,15 +10,22 @@
 
 		{{{ body }}}
 		<p>
+
 			{{#unless logged_in}}
 				<a href="/users/sign-in">Sign In</a>
 				<a href="/users/new">Sign Up</a>
 			{{/unless}}
+
+			<!-- {{#unless logged_in}} -->
+				<!-- <a href="/users/sign-in">Sign In</a> -->
+				<!-- <a href="/users/new">Sign Up</a> -->
+			<!-- {{/unless}} -->
+
 			<br>
 			{{#if logged_in}}
 				Welcome {{email}}! <br>
 				You are user {{user_id}}.<br>
-				<a href="/users/sign-out">Sign Out</a>
+				<a href="/users/sign-out" class="so">Sign Out</a>
 			{{/if}}
 		</p>
 	</body>
