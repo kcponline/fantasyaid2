@@ -1,7 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var d_rank = sequelize.define('d_rank', {
-    id: DataTypes.INT,
     Team: DataTypes.STRING,
     PassYardsPerGame: DataTypes.FLOAT,
     PassYardsPerGameRank: DataTypes.FLOAT,
