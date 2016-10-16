@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Lato" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
+		<title>Burger List!</title>
+	</head>
+	<body>
+
+		{{{ body }}}
+		<p>
+			{{#unless logged_in}}
+				<a href="/users/sign-in">Sign In</a>
+				<a href="/users/new">Sign Up</a>
+			{{/unless}}
+			<br>
+			{{#if logged_in}}
+				Welcome {{email}}! <br>
+				You are user {{user_id}}.<br>
+				<a href="/users/sign-out">Sign Out</a>
+			{{/if}}
+		</p>
+	</body>
+</html>

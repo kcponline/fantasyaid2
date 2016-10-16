@@ -1,0 +1,37 @@
+body {
+    background-color: orange;
+    font-family: 'Baloo Bhai';
+    /*text-align: center;*/
+}
+
+
+
+p {
+    font-size: 16px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+#signin, #signup{
+    margin-left: 100px;
+}
+
+#jumbo {
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-top: 20px;
+    font-family: 'Baloo Bhai';
+    text-align: center;
+    padding-top: 20px;
+}
+
+#sbtn, #sbtn2, #sbtn2 {
+    font-family: 'Lato', sans-serif;
+}
+
+li{
+    font-size: 18px;
+}
+
+h2, ul, #add, #addB{
+    margin-left: 50px;
+}
