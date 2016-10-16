@@ -3,7 +3,7 @@
     "host": "localhost",
     "username": "root",
     "password": "jiggy13",
-    "database": "fantasyaid_db",
+    "database": "burgers_with_sequelize_db",
     "dialect": "mysql"
 
   },

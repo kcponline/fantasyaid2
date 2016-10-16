@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<div class="container">
+
+    <div class="jumbotron" id="jumbo">
+        <h1 class="text-center">Can I Take Your Order?</h1>
+        <hr>
+        <h3 class="text-center">All Types of Burgers!</h3>
+        <h3 class="text-center">Any Way You Want It!</h3>
+        <br>
+
+    </div>
+</div>
+{{#if username}}
+    Welcome {{username}}! Make some burgers.
+{{/if}}
+
+{{#unless logged_in}}
+    <p> Sign up to add your burgers!! </p>
+{{/unless}}
+
+{{#if logged_in}}
+    <div class="container">
+        <div class="col-md-12">
+            <h2>Add a Burger</h2>
+            <form class="create-update-form" action="burgers/create" method="POST">
+
+                <div class="form-group" id="add">
+                    <label for="ca">Burger Name:</label>
+                    <input type="text" id="ca" name="burger_name">
+                </div>
+
+                <button id="addB" type="submit">Add Burger</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Burger Order List</h2>
+                <ul>
+                    {{#each burgers}}
+                        {{#unless this.devoured}}
+                            <li>
+                                {{this.burger_name}}
+
+                                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="true">
+                                    <button type="submit">DEVOUR!</button>
+                                </form>
+                                {{burgers/delete-burger}}
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Burgers That Have Been Devoured!</h2>
+
+                <ul>
+                    {{#each burgers}}
+                        {{#if this.devoured}}
+                            <li>
+                                {{this.burger_name}}
+
+                                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="false">
+                                    <button type="submit">PUKE IT BACK!</button>
+                                </form>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/if}}

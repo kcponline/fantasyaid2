@@ -7,22 +7,22 @@ router.get('/', function(req, res) {
 
   // SOLUTION:
   // =========
-  // use the Fantasy model to find all Fantasys,
+  // use the Burger model to find all Burgers,
   // and use the include option to grab info from the User model.
-  // This will let us show the Fantasy and it's owner.
-  models.Fantasy.findAll({
+  // This will let us show the Burger and it's owner.
+  models.Burger.findAll({
     include: [ models.User ]
   })
   // connect the findAll to this .then
-  .then(function(fantasy) {
+  .then(function(burgers) {
     // grab the user info from our req.
     // How is it in our req?
     // This info gets saved to req via the users_controller.js file.
-    res.render('fantasy/index', {
+    res.render('burgers/index', {
       user_id: req.session.user_id,
       email: req.session.user_email,
       logged_in: req.session.logged_in,
-      fantasy: fantasy
+      burgers: burgers
     });
   });
 });
@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 router.post('/create', function (req, res) {
   // SOLUTION:
   // =========
-  // use the Fantasy model to create a Burger based on what's
+  // use the Burger model to create a Burger based on what's
   // passed in req.body (burger_name, devoured, user_id)
   models.Burger.create({
     burger_name: req.body.burger_name,

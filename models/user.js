@@ -15,16 +15,16 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Fantasy, {
+        User.hasMany(models.Burger, {
           onDelete: "CASCADE",
           hooks: true,
           foreignKey: {
             allowNull: false
           }
-      });
+        })
       }
     }
-});
+  })
 
   return User;
 };
