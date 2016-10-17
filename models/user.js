@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Burger, {
+        User.hasMany(models.Player, {
           onDelete: "CASCADE",
           hooks: true,
           foreignKey: {
