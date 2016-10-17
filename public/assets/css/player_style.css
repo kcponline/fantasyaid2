@@ -12,9 +12,10 @@ p {
     margin-top: 20px;
 }
 
-#signin, #signup{
+#signin, #signup, .su{
     margin-left: 100px;
 }
+
 
 #jumbo {
     background-color: rgba(255, 255, 255, 0.6);

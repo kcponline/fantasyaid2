@@ -16,6 +16,22 @@
 
 {{#unless logged_in}}
     <p> Sign up to add your players!! </p>
+    <form class="create-update-form" id="signin" action="/users/login" method="POST">
+
+        <div class="form-group">
+            <label for="em">Email:</label>
+            <input type="text" id="em" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="password">
+        </div>
+
+        <button type="submit">Sign In</button>
+        <br>
+        <a href="/users/new">Sign Up</a>
+    </form>
 {{/unless}}
 
 {{#if logged_in}}
