@@ -7,22 +7,22 @@ router.get('/', function(req, res) {
 
   // SOLUTION:
   // =========
-  // use the player model to find all players,
+  // use the Burger model to find all Burgers,
   // and use the include option to grab info from the User model.
-  // This will let us show the player and it's owner.
-  models.Player.findAll({
+  // This will let us show the Burger and it's owner.
+  models.Burger.findAll({
     include: [ models.User ]
   })
   // connect the findAll to this .then
-  .then(function(players) {
+  .then(function(burgers) {
     // grab the user info from our req.
     // How is it in our req?
     // This info gets saved to req via the users_controller.js file.
-    res.render('players/index', {
+    res.render('burgers/index', {
       user_id: req.session.user_id,
       email: req.session.user_email,
       logged_in: req.session.logged_in,
-      players: players
+      burgers: burgers
     });
   });
 });
@@ -30,11 +30,11 @@ router.get('/', function(req, res) {
 router.post('/create', function (req, res) {
   // SOLUTION:
   // =========
-  // use the player model to create a player based on what's
-  // passed in req.body (player_name, devoured, user_id)
-  models.Player.create({
-    player_name: req.body.player_name,
-    // devoured: req.body.devoured,
+  // use the Burger model to create a Burger based on what's
+  // passed in req.body (burger_name, devoured, user_id)
+  models.Burger.create({
+    burger_name: req.body.burger_name,
+    devoured: req.body.devoured,
     user_id: req.session.user_id
   })
   // connect the .create to this .then
@@ -43,32 +43,34 @@ router.post('/create', function (req, res) {
   });
 });
 
-// router.put('/update/:id', function(req,res) {
-//   // SOLUTION:
-//   // =========
-//   // use the player model to update a player's devoured status
-//   // based on the boolean passed in req.body devoured
-//   // and the id of the player (as passed in the url)
-//   models.Player.update(
-//   {
-//     devoured: req.body.devoured
-//   },
-//   {
-//     where: { id : req.params.id }
-//   })
-//   // connect it to this .then.
-//   .then(function (result) {
-//     res.redirect('/');
-//   }, function(rejectedPromiseError){
-//
-//   });
-// });
+router.put('/update/:id', function(req,res) {
+  // SOLUTION:
+  // =========
+  // use the Burger model to update a Burger's devoured status
+  // based on the boolean passed in req.body devoured
+  // and the id of the Burger (as passed in the url)
+  models.Burger.update(
+  {
+    devoured: req.body.devoured
+  },
+  {
+    where: { id : req.params.id }
+  })
+  // connect it to this .then.
+  .then(function (result) {
+    res.redirect('/');
+  }, function(rejectedPromiseError){
+
+  });
+});
 
 
 router.delete('/delete/:id', function(req,res) {
-  // use the player model to delete a player
+  // SOLUTION:
+  // =========
+  // use the Burger model to delete a Burger
   // based on the id passed in the url
-  models.Player.destroy({
+  models.Burger.destroy({
     where: {
       id: req.params.id
     }

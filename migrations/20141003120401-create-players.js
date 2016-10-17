@@ -3,7 +3,7 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface
-      .createTable('players', {
+      .createTable('burgers', {
         id: {
           type: Sequelize.INTEGER,
           autoIncrement: true,
@@ -12,8 +12,8 @@ module.exports = {
         user_id: {
           type: Sequelize.INTEGER
         },
-        player_name: Sequelize.STRING,
-        // devoured: {type: Sequelize.BOOLEAN, default: false},
+        burger_name: Sequelize.STRING,
+        devoured: {type: Sequelize.BOOLEAN, default: false},
         created_at: Sequelize.DATE,
         updated_at: Sequelize.DATE
       });
@@ -21,6 +21,6 @@ module.exports = {
 
   down: function(queryInterface, Sequelize) {
     return queryInterface
-      .dropTable('players');
+      .dropTable('burgers');
   }
 };

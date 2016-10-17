@@ -1,9 +1,9 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Player = sequelize.define("Player", {
-    player_name: DataTypes.STRING,
-    // devoured: { type: DataTypes.BOOLEAN, defaultValue: false }
+  var Burger = sequelize.define("Burger", {
+    burger_name: DataTypes.STRING,
+    devoured: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {
 
     underscored: true,
@@ -11,11 +11,11 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
 
     // define the table's name
-    tableName: 'players',
+    tableName: 'burgers',
 
     classMethods: {
       associate: function(models) {
-        Player.belongsTo(models.User, {
+        Burger.belongsTo(models.User, {
           onDelete: "CASCADE",
           foreignKey: {
             allowNull: false
@@ -25,5 +25,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Player;
+  return Burger;
 };
