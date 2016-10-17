@@ -1,5 +1,4 @@
 {
-
   "name": "express-example",
   "version": "0.0.0",
   "private": true,
@@ -24,5 +23,4 @@
   "devDependencies": {
     "mysql": "^2.11.1"
   }
-
 }

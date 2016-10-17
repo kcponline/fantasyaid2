@@ -22,9 +22,7 @@
 <ul>
   {{#each people}}
     <li>
-
       {{this.burger_name}}
-
       {{#if ../logged_in}}
         <a href="/people/{{this.id}}/destroy"> destroy</a>
       {{/if}}
