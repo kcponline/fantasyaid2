@@ -27,6 +27,23 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/runningbacks', function(req, res) {
+  res.render('fantasy/runningbacks');
+});
+
+router.get('/quarterbacks', function(req, res) {
+  res.render('fantasy/quarterbacks');
+});
+
+router.get('/tightends', function(req, res) {
+  res.render('fantasy/tightends');
+});
+
+router.get('/widereceivers', function(req, res) {
+  res.render('fantasy/widereceivers');
+});
+
+
 router.post('/create', function (req, res) {
   // SOLUTION:
   // =========
