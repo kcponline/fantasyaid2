@@ -24,7 +24,7 @@ var users_controller = require('./controllers/users_controller');
 var app = express();
 
 // override POST to have DELETE and PUT
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //allow sessions
 app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
@@ -67,6 +67,7 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: (app.get('env') === 'development') ? err : {}
   });
+  console.log(err);
 });
 
 

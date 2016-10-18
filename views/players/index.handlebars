@@ -18,7 +18,6 @@
                     <ul>
                         <li><a href="blog-post.html">Blog Post</a></li>
                     </ul>
-                </li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -247,55 +246,29 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div>
-                                    <table class="table-scores">
-                                        <tr>
-                                            <td class="score-sub">12:45</td>
-                                            <td class="score-side">Man City</td>
-                                            <td class="score-post"><span>4-1</span></td>
-                                            <td class="score-side">Southampton</td>
-                                            <td class="score-tv"><a href="#"><i class="fa fa-file-text"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="score-sub">12:45</td>
-                                            <td class="score-side">A Villa</td>
-                                            <td class="score-post"><span>1-2</span></td>
-                                            <td class="score-side">Fulham</td>
-                                            <td class="score-tv"><a href="#"><i class="fa fa-file-text"></i></a></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div>
-                                    <table class="table-scores">
-                                        <tr>
-                                            <td class="score-sub">12:45</td>
-                                            <td class="score-side">Man City</td>
-                                            <td class="score-post"><span>4-1</span></td>
-                                            <td class="score-side">Southampton</td>
-                                            <td class="score-tv"><a href="#"><i class="fa fa-file-text"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="score-sub">12:45</td>
-                                            <td class="score-side">A Villa</td>
-                                            <td class="score-post"><span>1-2</span></td>
-                                            <td class="score-side">Fulham</td>
-                                            <td class="score-tv"><a href="#"><i class="fa fa-file-text"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="score-sub">12:45</td>
-                                            <td class="score-side">Hull City</td>
-                                            <td class="score-post"><span>1-0</span></td>
-                                            <td class="score-side">Swansea</td>
-                                            <td class="score-tv"><a href="#"><i class="fa fa-file-text"></i></a></td>
-                                        </tr>
-                                    </table>
-                                </div>
                             </div>
 
                     </div>
 
                 </div>
             </div>
+          </div>
+
+          <div class="m-06 bg-dark-blue">
+              <div class="module-content">
+
+                  <div class="title-default">
+                      <h2>Football Teams</h2>
+                  </div>
+                      <ul>
+                          {{#each D_Rank}}
+                                  <li>
+                                      {{this.team}}
+                                  </li>
+                          {{/each}}
+                      </ul>
+              </div>
+          </div>
 
     </section>
 

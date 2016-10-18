@@ -8,11 +8,11 @@ router.get('/', function(req, res) {
   // use the player model to find all player,
   // and use the include option to grab info from the User model.
   // This will let us show the player and it's owner.
-  models.Player.findAll({
+  models.D_Rank.findAll({
     include: [ models.User ]
   })
   // connect the findAll to this .then
-  .then(function(players) {
+  .then(function(D_Rank) {
     // grab the user info from our req.
     // How is it in our req?
     // This info gets saved to req via the users_controller.js file.
@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
       user_id: req.session.user_id,
       email: req.session.user_email,
       logged_in: req.session.logged_in,
-      players: players
+      D_Rank: D_Rank
     });
   });
 });
@@ -29,7 +29,7 @@ router.get('/runningbacks', function(req, res) {
   res.render('fantasy/runningbacks');
 });
 
-router.get('/quarterbacks', function(req, res) {
+router.get('fantasy/quarterbacks', function(req, res) {
   res.render('fantasy/quarterbacks');
 });
 

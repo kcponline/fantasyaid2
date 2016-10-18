@@ -15,16 +15,23 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       associate: function(models) {
-        User.hasMany(models.Player, {
+        // User.hasMany(models.Player, {
+        //   onDelete: "CASCADE",
+        //   hooks: true,
+        //   foreignKey: {
+        //     allowNull: false
+        //   }
+        // });
+        User.hasMany(models.D_Rank, {
           onDelete: "CASCADE",
           hooks: true,
           foreignKey: {
             allowNull: false
           }
-        })
+        });
       }
     }
-  })
+  });
 
   return User;
 };

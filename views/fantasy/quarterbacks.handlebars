@@ -1,9 +1,8 @@
-
 <div class="m-12 bg-dark-blue">
 		<div class="big-heading bg-dark-blue">
 			<h1>Compare Quarterbacks</h1>
-		</div>		
-	</div>					
+		</div>
+	</div>
 
 	<!-- <section class="bg-dark-blue"> -->
 
@@ -12,7 +11,7 @@
     <label for="quarterbackInputLeft"><h3>Search quarterback</h3></label>
     <input type="text" id="quarterbackInputLeft"><br>
 
-    
+
     <!-- This button will trigger our AJAX call -->
     <input id="findMovie" type="submit" value="Find Quarterback">
   </form>
@@ -22,7 +21,7 @@
 			<div class="module-content">
 
 				<div class="title-default">
-					<h2>Table Style 01</h2>	
+					<h2>Table Style 01</h2>
 				</div>	<!-- Module Title -->
 
 				<table class="table-scores">
@@ -35,42 +34,42 @@
 							<td>Man City</td>
 							<td><span>4-1</span></td>
 							<td>Southampton</td>
-							<td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
+							<td title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
 						</tr>
 						<tr>
 							<td>FT</td>
 							<td>QPR</td>
 							<td><span>5-2</span></td>
 							<td>Nottm Forest</td>
-							<td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
+							<td title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
 						</tr>
 						<tr class="t-header">
 							<td colspan="5" class="score-date">Sat 5th Apr</td>
-						</tr>											
+						</tr>
 						<tr>
 							<td>FT</td>
 							<td>Rangers</td>
 							<td><span>1-3</span></td>
 							<td>Dundee Utd</td>
-							<td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
+							<td title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
 						</tr>
 						<tr>
 							<td>12:45</td>
 							<td>Luton</td>
 							<td><span>0-0</span></td>
 							<td>Braintree</td>
-							<td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
-						</tr>																											
+							<td title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
+						</tr>
 				</table> <!-- Table Scores -->
 
-			</div>	<!-- Module Content -->	
-		</div>	<!-- Module -->	
+			</div>	<!-- Module Content -->
+		</div>	<!-- Module -->
 
 		<div class="m-06">
 			<div class="module-content">
 
 				<div class="title-default">
-					<h2>Table Style 02</h2>	
+					<h2>Table Style 02</h2>
 				</div>	<!-- Module Title -->
 
 				<table class="table-scores">
@@ -79,14 +78,14 @@
 							<td>Team</td>
 							<td>P</td>
 							<td>Pts</td>
-						</tr>			
+						</tr>
 
 						<tr>
 							<td>1</td>
 							<td>Man City</td>
 							<td>31</td>
 							<td>70</td>
-						</tr>	
+						</tr>
 						<tr>
 							<td>2</td>
 							<td>Man City</td>
@@ -110,15 +109,15 @@
 							<td>Man City</td>
 							<td>21</td>
 							<td>59</td>
-						</tr>						
-																		
-				</table> <!-- Table Scores --> 
+						</tr>
+
+				</table> <!-- Table Scores -->
 
 
-			</div>	<!-- Module Content -->	
-		</div>	<!-- Module -->	
+			</div>	<!-- Module Content -->
+		</div>	<!-- Module -->
 
-		<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+		<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script type="text/javascript">
 
 	// This .on("click") function will trigger the AJAX Call
@@ -126,7 +125,7 @@
 
 		var quarterbackLeft = $('#quarterbackInputLeft').val();
 
-		// Here we assemble our URL 
+		// Here we assemble our URL
 		var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?" + movie + "&y=&plot=short&r=json";
 
 		http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2010&week=1&format=json
