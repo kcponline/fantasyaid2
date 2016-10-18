@@ -2,7 +2,7 @@
     "development": {
         "host": "localhost",
         "username": "root",
-        "password": "jiggy13", // edit for local
+        "password": "jiggy13",
         "database": "fantasyaid_db",
         "dialect": "mysql"
 
