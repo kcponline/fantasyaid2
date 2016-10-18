@@ -1,24 +1,24 @@
 {
-  "development": {
-    "host": "localhost",
-    "username": "root",
-    "password": "",
-    "database": "cat_with_sequelize_db",
-    "dialect": "mysql"
+    "development": {
+        "host": "localhost",
+        "username": "root",
+        "password": "jiggy13",
+        "database": "fantasyaid_db",
+        "dialect": "mysql"
 
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "z0wdw4aqc5xphxxv",
+        "password": "ksw1z77czr6u2e1z",
+        "database": "zkv1jpe8kpbw0qzj",
+        "host": "m7wltxurw8d2n21q.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "dialect": "mysql"
+    }
 }
