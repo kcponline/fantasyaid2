@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,24 +35,13 @@
 			<h1>Fantasy Aid</h1>
 			<h3>Optimize Your Lineup</h3>
 		</div>
+
 	</div>
 
-
 		{{{ body }}}
-		<p>
-			{{#unless logged_in}}
-				<!-- <a href="/users/sign-in">Sign In</a> -->
-				<a href="/users/new">Sign Up</a>
-			{{/unless}}
-			<br>
-			{{#if logged_in}}
-				Welcome {{email}}! <br>
-				You are user {{user_id}}.<br>
-				<a href="/users/sign-out">Sign Out</a>
-			{{/if}}
-		</p>
 
 		{{>footer}}
+
 	</body>
 
 </html>

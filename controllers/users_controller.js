@@ -29,8 +29,6 @@ router.post('/login', function(req, res) {
 			res.redirect('/users/sign-in');
 		}
 
-		// Solution:
-		// =========
 		// Use bcrypt to compare the user's password input
 		// with the hash stored in the user's row.
 		// If the result is true,
@@ -75,10 +73,6 @@ router.post('/create', function(req,res) {
 			console.log(users);
 			res.send('we already have an email or username for this account');
 		}else{
-
-			// Solution:
-			// =========
-
 			// Using bcrypt, generate a 10-round salt,
 			// then use that salt to hash the user's password.
 			bcrypt.genSalt(10, function(err, salt) {
