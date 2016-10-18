@@ -5,8 +5,6 @@ var router  = express.Router();
 
 router.get('/', function(req, res) {
 
-  // SOLUTION:
-  // =========
   // use the player model to find all player,
   // and use the include option to grab info from the User model.
   // This will let us show the player and it's owner.
@@ -28,8 +26,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/create', function (req, res) {
-  // SOLUTION:
-  // =========
+
   // use the player model to create a player based on what's
   // passed in req.body (player_name, devoured, user_id)
   models.Player.create({
@@ -44,8 +41,7 @@ router.post('/create', function (req, res) {
 });
 
 router.put('/update/:id', function(req,res) {
-  // SOLUTION:
-  // =========
+
   // use the player model to update a player's devoured status
   // based on the boolean passed in req.body devoured
   // and the id of the player (as passed in the url)
@@ -66,8 +62,7 @@ router.put('/update/:id', function(req,res) {
 
 
 router.delete('/delete/:id', function(req,res) {
-  // SOLUTION:
-  // =========
+
   // use the player model to delete a player
   // based on the id passed in the url
   models.Player.destroy({
