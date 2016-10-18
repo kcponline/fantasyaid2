@@ -42,7 +42,7 @@
                 <ul>
                     {{#each D_Rank}}
                             <li>
-                                {{this.PassYardsPerGame}}
+                                {{this.team}}
 
                                 <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
                                     <input type="hidden" name="devoured" value="true">
