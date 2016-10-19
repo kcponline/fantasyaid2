@@ -1,21 +1,11 @@
 {
-<<<<<<< HEAD
+
   "development": {
     "host": "localhost",
     "username": "root",
     "password": "jiggy13",
     "database": "fantasyaid_db",
     "dialect": "mysql"
-=======
->>>>>>> master
-
-    "development": {
-        "host": "localhost",
-        "username": "root",
-        "password": "jiggy13",
-        "database": "fantasyaid_db",
-        "dialect": "mysql"
-
     },
     "test": {
         "username": "root",
