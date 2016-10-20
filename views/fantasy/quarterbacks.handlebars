@@ -4,7 +4,7 @@
         <div class="m-06 bg-orange">
             <form id="quarterbackSearchRight" action="quarterback/search">
                 <label for="quarterbackInputLeft">
-                    <h3>Search quarterback</h3></label>
+                    <h3>Search Quarterback</h3></label>
                 <input type="text" id="quarterbackInputLeft">
                 <br>
                 <!-- This button will trigger our AJAX call -->
@@ -16,7 +16,7 @@
         <div class="m-06 bg-orange">
             <form id="quarterbackSearchRight" action="quarterback/search">
                 <label for="quarterbackInputRight">
-                    <h3>Search quarterback</h3></label>
+                    <h3>Search Quarterback</h3></label>
                 <input type="text" id="quarterbackInputRight">
                 <br>
                 <!-- This button will trigger our AJAX call -->
@@ -72,7 +72,7 @@
             </tr>
             <tr>
               <td id="qbRightPassCompletionsAttempts"></td>
-              <td id="qbRigh tPassYards"></td>
+              <td id="qbRightPassYards"></td>
               <td id="qbRightRushYards"></td>
               <td id="qbRightTotalTD"></td>
               <td id="qbRightINT"></td>
@@ -134,16 +134,16 @@ $('#findQuarterbackLeft').on('click', function() {
 						var passINTLeft = JSON.parse(response.players[i].stats[7]) * (-2);
 					};
 
-					var passTDLeft = JSON.parse(response.players[i].stats[6]) * 6;
+					var leftTotalTD = totalTD * 6;
 
-          var total = passYardsLeft + passTDLeft + passINTLeft;
+          var total = passYardsLeft + leftTotalTD + passINTLeft;
 					$("#qbLeftPoints").html(total.toFixed(2));
 				}
 		});
 
 
         return false;
-})
+});
 
 $('#findQuarterbackRight').on('click', function() {
 
@@ -174,10 +174,10 @@ $('#findQuarterbackRight').on('click', function() {
 
           if (response.players[i].stats[5] === undefined) {
             $("#qbRightPassYards").html("0");
-            var passYardsLeft = 0;
+            var passYardsRight = 0;
           } else {
             $("#qbRightPassYards").html(JSON.parse(response.players[i].stats[5]));
-            var passYardsLeft = JSON.parse(response.players[i].stats[5]) / 25;
+            var passYardsRight = JSON.parse(response.players[i].stats[5]) / 25;
           };
 
 					$("#qbRightRushYards").html(JSON.parse(response.players[i].stats[14]));
@@ -186,15 +186,15 @@ $('#findQuarterbackRight').on('click', function() {
 
           if(response.players[i].stats[7] === undefined) {
 						$("#qbRightINT").html("0");
-						var passINTLeft = 0;
+						var passINTRight = 0;
 					} else {
 						$("#qbRightINT").html(JSON.parse(response.players[i].stats[7]));
-						var passINTLeft = JSON.parse(response.players[i].stats[7]) * (-2);
+						var passINTRight = JSON.parse(response.players[i].stats[7]) * (-2);
 					};
 
-					var passTDLeft = JSON.parse(response.players[i].stats[6]) * 6;
+					var passTDRight = totalTD * 6;
 
-          var total = passYardsLeft + passTDLeft + passINTLeft;
+          var total = passYardsRight + passTDRight + passINTRight;
 					$("#qbRightPoints").html(total.toFixed(2));
 				}
 		});
