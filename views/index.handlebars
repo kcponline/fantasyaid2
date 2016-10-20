@@ -46,7 +46,9 @@
 {{/unless}}
 
 {{#if logged_in}}
-    <header>
+    <form action="/fantasy" method="POST">
+    </form>
+    <!-- <header>
         <nav>
             <div class="logo">
                 <a href="index.html"><img src="img/logo.png" alt="Sport Template"></a>
@@ -348,11 +350,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     {{#if username}}
 
         Welcome {{username}}
         {{>nav}}
     {{/if}}
+
 {{/if}}
