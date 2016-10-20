@@ -63,20 +63,20 @@
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
-                <td>Pass Completions</td>
-                <td>Pass Attempts</td>
-                <td>Yards</td>
-                <td>TD</td>
-								<td>INT</td>
-								<td>Fantasy Points</td>
+              <td>Completions/Attempts</td>
+              <td>Pass Yards</td>
+              <td>Rush Yards</td>
+              <td>Total TD</td>
+              <td>INT</td>
+              <td>Fantasy Points</td>
             </tr>
             <tr>
-                <td id="qbRightPassCompletions"></td>
-                <td id="qbRightPassAttempts"></td>
-                <td id="qbRightYards"></td>
-                <td id="qbRightTD"></td>
-								<td id="qbRightINT"></td>
-								<td id="qbRightPoints"></td>
+              <td id="qbRightPassCompletionsAttempts"></td>
+              <td id="qbRigh tPassYards"></td>
+              <td id="qbRightRushYards"></td>
+              <td id="qbRightTotalTD"></td>
+              <td id="qbRightINT"></td>
+              <td id="qbRightPoints"></td>
             </tr>
         </table>
         <!-- Table Scores -->
@@ -87,7 +87,7 @@
 <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script type="text/javascript">
 
-var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2016&week=3&position=QB&format=json";
+var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2016&week=6&position=QB&format=json";
 // This .on("click") function will trigger the AJAX Call
 $('#findQuarterbackLeft').on('click', function() {
 
@@ -96,25 +96,48 @@ $('#findQuarterbackLeft').on('click', function() {
 		$.ajax({url: queryURL, method: "GET"}).done(function(response) {
 			for (var i = 0; i < response.players.length; i++)
 			if (quarterbackLeft == response.players[i].name) {
-					var passTd = JSON.parse(response.players[i].stats[6]);
-					var rushTD = JSON.parse(response.players[i].stats[15]);
+
+					if (response.players[i].stats[6] === undefined) {
+            var passTd = 0;
+          } else {
+            var passTd = JSON.parse(response.players[i].stats[6]);
+          };
+
+					if (response.players[i].stats[15] === undefined) {
+            var rushTD = 0;
+          } else {
+            var rushTD = JSON.parse(response.players[i].stats[15]);
+          };
 					var totalTD = parseInt(passTd) + parseInt(rushTD);
+
 					$("#qbLeftName").text(JSON.stringify(response.players[i].name));
+
 					$("#qbLeftPassCompletionsAttempts").html(JSON.parse(response.players[i].stats[3]) + "/" + JSON.parse(response.players[i].stats[2]));
-					$("#qbLeftPassYards").html(JSON.parse(response.players[i].stats[5]));
+
+          if (response.players[i].stats[5] === undefined) {
+            $("#qbLeftPassYards").html("0");
+            var passYardsLeft = 0;
+          } else {
+            $("#qbLeftPassYards").html(JSON.parse(response.players[i].stats[5]));
+            var passYardsLeft = JSON.parse(response.players[i].stats[5]) / 25;
+          };
+
 					$("#qbLeftRushYards").html(JSON.parse(response.players[i].stats[14]));
-					$("#qbLeftTotalTD").html(totalTD);
-					console.log(response.players[i].stats);
-					if(response.players[i].stats[7] === undefined) {
+
+          $("#qbLeftTotalTD").html(totalTD);
+
+          if(response.players[i].stats[7] === undefined) {
 						$("#qbLeftINT").html("0");
 						var passINTLeft = 0;
 					} else {
 						$("#qbLeftINT").html(JSON.parse(response.players[i].stats[7]));
 						var passINTLeft = JSON.parse(response.players[i].stats[7]) * (-2);
 					};
-					var passYardsLeft = JSON.parse(response.players[i].stats[5]) / 25;
+
 					var passTDLeft = JSON.parse(response.players[i].stats[6]) * 6;
-					$("#qbLeftPoints").html(passYardsLeft + passTDLeft + passINTLeft);
+
+          var total = passYardsLeft + passTDLeft + passINTLeft;
+					$("#qbLeftPoints").html(total.toFixed(2));
 				}
 		});
 
@@ -128,15 +151,51 @@ $('#findQuarterbackRight').on('click', function() {
 
     // Here we assemble our URL
 
-		$.ajax({url: queryURL, method: "GET"}).done(function(response) {
+    $.ajax({url: queryURL, method: "GET"}).done(function(response) {
 			for (var i = 0; i < response.players.length; i++)
 			if (quarterbackRight == response.players[i].name) {
+
+					if (response.players[i].stats[6] === undefined) {
+            var passTd = 0;
+          } else {
+            var passTd = JSON.parse(response.players[i].stats[6]);
+          };
+
+					if (response.players[i].stats[15] === undefined) {
+            var rushTD = 0;
+          } else {
+            var rushTD = JSON.parse(response.players[i].stats[15]);
+          };
+					var totalTD = parseInt(passTd) + parseInt(rushTD);
+
 					$("#qbRightName").text(JSON.stringify(response.players[i].name));
-					$("#qbRightPassCompletions").html(JSON.parse(response.players[i].stats[3]));
-					$("#qbRightPassAttempts").html(JSON.parse(response.players[i].stats[2]));
-					$("#qbRightYards").html(JSON.parse(response.players[i].stats[5]));
-					$("#qbRightTD").html(JSON.parse(response.players[i].stats[6]));
-					$("#qbRightINT").html(JSON.parse(response.players[i].stats[7]));
+
+					$("#qbRightPassCompletionsAttempts").html(JSON.parse(response.players[i].stats[3]) + "/" + JSON.parse(response.players[i].stats[2]));
+
+          if (response.players[i].stats[5] === undefined) {
+            $("#qbRightPassYards").html("0");
+            var passYardsLeft = 0;
+          } else {
+            $("#qbRightPassYards").html(JSON.parse(response.players[i].stats[5]));
+            var passYardsLeft = JSON.parse(response.players[i].stats[5]) / 25;
+          };
+
+					$("#qbRightRushYards").html(JSON.parse(response.players[i].stats[14]));
+
+          $("#qbRightTotalTD").html(totalTD);
+
+          if(response.players[i].stats[7] === undefined) {
+						$("#qbRightINT").html("0");
+						var passINTLeft = 0;
+					} else {
+						$("#qbRightINT").html(JSON.parse(response.players[i].stats[7]));
+						var passINTLeft = JSON.parse(response.players[i].stats[7]) * (-2);
+					};
+
+					var passTDLeft = JSON.parse(response.players[i].stats[6]) * 6;
+
+          var total = passYardsLeft + passTDLeft + passINTLeft;
+					$("#qbRightPoints").html(total.toFixed(2));
 				}
 		});
 
