@@ -13,7 +13,7 @@ var methodOverride = require('method-override'); // for deletes in express
 // Our model controllers (rather than routes)
 var application_controller = require('./controllers/application_controller');
 
-var fantasy_controller = require('./controllers/fantasy_controller');
+var players_controller = require('./controllers/players_controller');
 
 var users_controller = require('./controllers/users_controller');
 
@@ -24,7 +24,7 @@ var users_controller = require('./controllers/users_controller');
 var app = express();
 
 // override POST to have DELETE and PUT
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method'))
 
 //allow sessions
 app.use(session({ secret: 'app', cookie: { maxAge: 60000 }}));
@@ -49,7 +49,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', application_controller);
-app.use('/fantasy', fantasy_controller);
+app.use('/players', players_controller);
 app.use('/users', users_controller);
 
 // catch 404 and forward to error handler
