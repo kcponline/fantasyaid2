@@ -1,26 +1,26 @@
- 
+
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearch" action="quarterback/search">
+            <form id="quarterbackSearchRight" action="quarterback/search">
                 <label for="quarterbackInputLeft">
                     <h3>Search quarterback</h3></label>
                 <input type="text" id="quarterbackInputLeft">
                 <br>
                 <!-- This button will trigger our AJAX call -->
-                <input id="findQuarterback" type="submit" value="Find Quarterback">
+                <input id="findQuarterbackLeft" type="submit" value="Find Quarterback" method="GET">
             </form>
         </div>
     </div>
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearch" action="quarterback/search">
-                <label for="quarterbackInputLeft">
+            <form id="quarterbackSearchRight" action="quarterback/search">
+                <label for="quarterbackInputRight">
                     <h3>Search quarterback</h3></label>
                 <input type="text" id="quarterbackInputRight">
                 <br>
                 <!-- This button will trigger our AJAX call -->
-                <input id="findQuarterback" type="submit" value="Find Quarterback">
+                <input id="findQuarterbackRight" type="submit" value="Find Quarterback">
             </form>
         </div>
     </div>
@@ -29,43 +29,25 @@
 <div class="m-06">
     <div class="module-content">
         <div class="title-default">
-            <h2>Table Style 01</h2>
+            <h2 id="qbLeftName"></h2>
         </div>
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
-                <td colspan="5" class="score-date">Sat 5th Apr</td>
+							<td>Completions/Attempts</td>
+							<td>Pass Yards</td>
+							<td>Rush Yards</td>
+							<td>Total TD</td>
+							<td>INT</td>
+							<td>Fantasy Points</td>
             </tr>
             <tr>
-                <td>FT</td>
-                <td>Man City</td>
-                <td><span>4-1</span></td>
-                <td>Southampton</td>
-                <td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
-            </tr>
-            <tr>
-                <td>FT</td>
-                <td>QPR</td>
-                <td><span>5-2</span></td>
-                <td>Nottm Forest</td>
-                <td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
-            </tr>
-            <tr class="t-header">
-                <td colspan="5" class="score-date">Sat 5th Apr</td>
-            </tr>
-            <tr>
-                <td>FT</td>
-                <td>Rangers</td>
-                <td><span>1-3</span></td>
-                <td>Dundee Utd</td>
-                <td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
-            </tr>
-            <tr>
-                <td>12:45</td>
-                <td>Luton</td>
-                <td><span>0-0</span></td>
-                <td>Braintree</td>
-                <td title="Online TV" title="Online TV"><a href="#"><i class="fa fa-desktop"></i></a></td>
+							<td id="qbLeftPassCompletionsAttempts"></td>
+							<td id="qbLeftPassYards"></td>
+							<td id="qbLeftRushYards"></td>
+							<td id="qbLeftTotalTD"></td>
+							<td id="qbLeftINT"></td>
+							<td id="qbLeftPoints"></td>
             </tr>
         </table>
         <!-- Table Scores -->
@@ -76,45 +58,25 @@
 <div class="m-06">
     <div class="module-content">
         <div class="title-default">
-            <h2>Table Style 02</h2>
+            <h2 id="qbRightName"></h2>
         </div>
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
-                <td>Pos</td>
-                <td>Team</td>
-                <td>P</td>
-                <td>Pts</td>
+                <td>Pass Completions</td>
+                <td>Pass Attempts</td>
+                <td>Yards</td>
+                <td>TD</td>
+								<td>INT</td>
+								<td>Fantasy Points</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Man City</td>
-                <td>31</td>
-                <td>70</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Man City</td>
-                <td>25</td>
-                <td>65</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Man City</td>
-                <td>23</td>
-                <td>62</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Man City</td>
-                <td>21</td>
-                <td>59</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Man City</td>
-                <td>21</td>
-                <td>59</td>
+                <td id="qbRightPassCompletions"></td>
+                <td id="qbRightPassAttempts"></td>
+                <td id="qbRightYards"></td>
+                <td id="qbRightTD"></td>
+								<td id="qbRightINT"></td>
+								<td id="qbRightPoints"></td>
             </tr>
         </table>
         <!-- Table Scores -->
@@ -124,23 +86,55 @@
 <!-- Module -->
 <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script type="text/javascript">
+
+var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2016&week=3&position=QB&format=json";
 // This .on("click") function will trigger the AJAX Call
-$('#quarterbackSearch').on('click', function() {
+$('#findQuarterbackLeft').on('click', function() {
 
     var quarterbackLeft = $('#quarterbackInputLeft').val();
 
-    // Here we assemble our URL 
-    var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?" + movie + "&y=&plot=short&r=json";
+    var fantasyPointsLeft = 0;
 
-    http: //api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2010&week=1&format=json
+		$.ajax({url: queryURL, method: "GET"}).done(function(response) {
+			for (var i = 0; i < response.players.length; i++)
+			if (quarterbackLeft == response.players[i].name) {
+					$("#qbLeftName").text(JSON.stringify(response.players[i].name));
+					$("#qbLeftPassCompletionsAttempts").html(JSON.parse(response.players[i].stats[3]) + "/" + JSON.parse(response.players[i].stats[2]));
+					$("#qbLeftPassYards").html(JSON.parse(response.players[i].stats[5]));
+					$("#qbLeftRushYards").html(JSON.parse(response.players[i].stats[14]));
+					$("#qbLeftTotalTD").html(totalTD)
+					$("#qbLeftINT").html(JSON.parse(response.players[i].stats[7]));
+					var passYardsLeft = JSON.parse(response.players[i].stats[5]) / 25;
+					var passTDLeft = JSON.parse(response.players[i].stats[6]) * 6;
+					var passINTLeft = JSON.parse(response.players[i].stats[7]) * (-2);
+					var passTd = JSON.parse(response.players[i].stats[6]);
+					var rushTD = JSON.parse(response.players[i].stats[15]);
+					var totalTD = parseInt(passTd) + parseInt(rushTD);
+				}
+		});
 
 
-        //------
+        return false;
+})
 
-        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data and display it in the div with an id of movieView
-        // YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY TOUCH THE HTML ABOVE.
+$('#findQuarterbackRight').on('click', function() {
 
-        //------
+    var quarterbackRight = $('#quarterbackInputRight').val();
+
+    // Here we assemble our URL
+
+		$.ajax({url: queryURL, method: "GET"}).done(function(response) {
+			for (var i = 0; i < response.players.length; i++)
+			if (quarterbackRight == response.players[i].name) {
+					$("#qbRightName").text(JSON.stringify(response.players[i].name));
+					$("#qbRightPassCompletions").html(JSON.parse(response.players[i].stats[3]));
+					$("#qbRightPassAttempts").html(JSON.parse(response.players[i].stats[2]));
+					$("#qbRightYards").html(JSON.parse(response.players[i].stats[5]));
+					$("#qbRightTD").html(JSON.parse(response.players[i].stats[6]));
+					$("#qbRightINT").html(JSON.parse(response.players[i].stats[7]));
+				}
+		});
+
 
         return false;
 })

@@ -2,8 +2,8 @@
   "development": {
     "host": "localhost",
     "username": "root",
-    "password": "Superman1",
-    "database": "fantasyaid_db",
+    "password": "jiggy13",
+    "database": "nfl_def_ranks_db",
     "dialect": "mysql"
 
   },
