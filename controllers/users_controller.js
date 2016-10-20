@@ -10,10 +10,6 @@ router.get('/signin-signup', function(req,res) {
 	});
 });
 
-// router.get('/sign-in', function(req,res) {
-// 	res.render('users/sign_in');
-// });
-
 router.get('/sign-out', function(req,res) {
   req.session.destroy(function(err) {
      res.redirect('/');
