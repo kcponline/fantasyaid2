@@ -1886,3 +1886,11 @@ footer ul.social li a:hover i {
 #user{
 	color: white;
 }
+
+#signin, #signup{
+	padding: 10px;
+}
+
+#signin1, #signup1{
+	margin-bottom: 15px;
+}
