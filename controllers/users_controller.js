@@ -4,10 +4,8 @@ var express = require('express');
 var router  = express.Router();
 
 //this is the users_controller.js file
-router.get('/signin-signup', function(req,res) {
-	res.render('users/signin-signup', {
-		layout: 'registration'
-	});
+router.get('/index', function(req,res) {
+	res.render('/index');
 });
 
 router.get('/sign-out', function(req,res) {
@@ -24,7 +22,7 @@ router.post('/login', function(req, res) {
   }).then(function(user) {
 
 		if (user === null){
-			res.redirect('/users/signin-signup');
+			res.redirect('/');
 		}
 
 		// Use bcrypt to compare the user's password input
@@ -59,7 +57,7 @@ router.post('/login', function(req, res) {
         // if the result is anything but true (password invalid)
         else{
         	// redirect user to sign in
-					res.redirect('/users/signin-signup');
+					res.redirect('/');
 				}
     });
 });
