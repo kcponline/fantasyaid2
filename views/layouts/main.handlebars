@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,28 +24,24 @@
     	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   	<![endif]-->
 </head>
+
 <body>
     <div class="m-12 bg-dark-blue">
         <div class="big-heading bg-dark-blue">
             <h1>Fantasy Aid</h1>
             <p>WE'RE ALWAYS RIGHT...sometimes</p>
             <p>
-            {{#unless logged_in}}
-            <!-- <a href="/users/sign-in">Sign In</a> -->
-            <a href="/users/new">Sign Up</a> 
-            {{/unless}}
 
-            <br> <h4>{{#if logged_in}} Welcome {{email}}! </h4>
-            <br> <h4>You are user {{user_id}}.</h4>
-           {{!--  <br> --}}
-            <a href="/users/sign-out">Sign Out</a> {{/if}}
+            <br> <h4 id="user">{{#if logged_in}} Welcome {{email}}! </h4>
+            <br> <h4 id="user">You are user {{user_id}}.</h4>
+ {{/if}}
         </p>
         </div>
     </div>
 
-   
+		{{{ body }}}
 
 
-    {{{ body }}} {{>footer}}
 </body>
+{{>footer}}
 </html>
