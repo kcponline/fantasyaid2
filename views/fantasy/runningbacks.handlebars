@@ -1,26 +1,26 @@
- 
+ {{>nav}}
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearch" action="quarterback/search">
-                <label for="quarterbackInputLeft">
+            <form id="runningbackSearch" action="runningback/search">
+                <label for="runningbackInputLeft">
                     <h3>Search Runningbacks</h3></label>
-                <input type="text" id="quarterbackInputLeft">
+                <input type="text" id="runningbackInputLeft">
                 <br>
                 <!-- This button will trigger our AJAX call -->
-                <input id="findQuarterback" type="submit" value="Find Quarterback">
+                <input id="findRunningback" type="submit" value="Find Runningback">
             </form>
         </div>
     </div>
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearch" action="quarterback/search">
-                <label for="quarterbackInputLeft">
+            <form id="runningbackSearch" action="runningback/search">
+                <label for="runningbackInputLeft">
                     <h3>Search Runningbacks</h3></label>
-                <input type="text" id="quarterbackInputRight">
+                <input type="text" id="runningbackInputRight">
                 <br>
                 <!-- This button will trigger our AJAX call -->
-                <input id="findQuarterback" type="submit" value="Find Quarterback">
+                <input id="findRunningback" type="submit" value="Find Runningback">
             </form>
         </div>
     </div>
@@ -125,11 +125,11 @@
 <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script type="text/javascript">
 // This .on("click") function will trigger the AJAX Call
-$('#quarterbackSearch').on('click', function() {
+$('#runningbackSearch').on('click', function() {
 
-    var quarterbackLeft = $('#quarterbackInputLeft').val();
+    var runningbackLeft = $('#runningbackInputLeft').val();
 
-    // Here we assemble our URL 
+    // Here we assemble our URL
     var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?" + movie + "&y=&plot=short&r=json";
 
     http: //api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2010&week=1&format=json

@@ -1,4 +1,5 @@
- 
+
+{{>nav}}
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
@@ -129,7 +130,7 @@ $('#quarterbackSearch').on('click', function() {
 
     var quarterbackLeft = $('#quarterbackInputLeft').val();
 
-    // Here we assemble our URL 
+    // Here we assemble our URL
     var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?" + movie + "&y=&plot=short&r=json";
 
     http: //api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2010&week=1&format=json

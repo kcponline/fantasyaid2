@@ -4,8 +4,8 @@ var express = require('express');
 var router  = express.Router();
 
 //this is the users_controller.js file
-router.get('/index', function(req,res) {
-	res.render('/index');
+router.get('/signin-signup', function(req,res) {
+	res.render('/users/signin-signup');
 });
 
 router.get('/sign-out', function(req,res) {
@@ -47,12 +47,7 @@ router.post('/login', function(req, res) {
           // and the user's email.
           req.session.user_email = user.email;
 
-		  res.render('index', {
-		   user_id: req.session.user_id,
-		   email: req.session.user_email,
-		   logged_in: req.session.logged_in,
-		   username: req.session.username
-			 });
+		res.redirect('/fantasy');
    }
         // if the result is anything but true (password invalid)
         else{
@@ -105,12 +100,7 @@ router.post('/create', function(req,res) {
 		          req.session.user_email = user.email;
 
 		          // redirect to home on login
-				  res.render('index', {
-					user_id: req.session.user_id,
-					email: req.session.user_email,
-					logged_in: req.session.logged_in,
-					username: req.session.username
-				  });
+				  res.redirect('/fantasy');
 			  });
 		  });
 	  });

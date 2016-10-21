@@ -1,58 +1,11 @@
 <!DOCTYPE html>
-<header>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Sport Template"></a>
-        </div>
+{{#unless logged_in}}
+    {{>registration}}
+{{/unless}}
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Pages</a>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="soon.html">Comming soon</a></li>
-                </ul>
-            </li>
-            <ul>
-                <li><a href="blog-post.html">Blog Post</a></li>
-            </ul>
+{{#if logged_in}}
+    {{>nav}}
 
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="nav-mobile">
-        <ul class="nav-mobile-menu">
-            <li><a href="index.html">Home</a></li>
-            <li>
-                <div>Pages <i class="fa fa-chevron-right"></i></div>
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="404.html">404</a></li>
-                    <li><a href="soon.html">Comming soon</a></li>
-                </ul>
-            </li>
-            <li>
-                <div>Blog <i class="fa fa-chevron-right"></i></div>
-                <ul>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="blog-post.html">Blog Post</a></li>
-                </ul>
-            </li>
-
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <ul class="button-menu">
-            <li>
-                <i class="fa fa-bars"></i>
-            </li>
-        </ul>
-    </div>
-</header>
 
 <section class="m-12 bg-dark-blue">
     <div class="m-06">
@@ -60,7 +13,7 @@
         <div class="m-6 bg-03">
             <div class="module-content content">
                 <a href="fantasy/runningbacks" method="GET"><h1>Compare Running Backs</h1></a>
-                <p>Birmingham City's Karen Carney says they have proved critics wrong by reaching the Women's Champions League semi-finals. </p>
+                <p>Who will rush for more yards this week? </p>
                 <div class="info">
                     <ul>
                         <li class="date"><i class="fa fa-calendar"></i>31 Mar 2014</li>
@@ -70,10 +23,10 @@
             </div>
         </div>
 
-        <div class="m-6 bg-02">
+        <div class="m-6 bg-03">
             <div class="module-content content">
                 <a href="fantasy/tightends" method="GET"><h1>Compare Tight Ends</h1></a>
-                <p>Gronkowskis Back!</p>
+                <p>Gronkowskis Back! Who else could you choose? </p>
                 <div class="info">
                     <ul>
                         <li class="date"><i class="fa fa-calendar"></i>31 Mar 2014</li>
@@ -82,11 +35,12 @@
                 </div>
             </div>
         </div>
-
-        <div class="m-06 bg-03">
+    </div>
+    <div class="m-06">
+        <div class="m-6 bg-03">
             <div class="module-content content">
                 <a href="fantasy/quarterbacks" method="GET"><h1>Compare Quarterbacks</h1></a>
-                <p>Birmingham City's Karen Carney says they have proved critics wrong by reaching the Women's Champions League semi-finals. </p>
+                <p>Which Quarterback will you choose this week? </p>
                 <div class="info">
                     <ul>
                         <li class="date"><i class="fa fa-calendar"></i>31 Mar 2014</li>
@@ -97,10 +51,10 @@
         </div>
 
 
-        <div class="m-06 bg-03">
+        <div class="m-6 bg-03">
             <div class="module-content content">
                 <a href="fantasy/widereceivers" method="GET"><h1>Compare Wide Receivers</h1></a>
-                <p>Birmingham City's Karen Carney says they have proved critics wrong by reaching the Women's Champions League semi-finals. </p>
+                <p>Who will recieve the most touchdowns?</p>
                 <div class="info">
                     <ul>
                         <li class="date"><i class="fa fa-calendar"></i>31 Mar 2014</li>
@@ -109,6 +63,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <div class="m-06 bg-dark-blue">
             <div class="owl-carousel owl-theme" data-items="1" data-auto-play="true">
@@ -347,4 +302,5 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+{{/if}}
 {{/if}}
