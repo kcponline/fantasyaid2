@@ -1,4 +1,4 @@
-
+{{>nav}}
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
@@ -84,7 +84,7 @@
     <!-- Module Content -->
 </div>
 <!-- Module -->
-<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 <script type="text/javascript">
 
 var queryURL = "http://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2016&week=6&position=QB&format=json";
@@ -181,6 +181,7 @@ $('#findQuarterbackRight').on('click', function() {
           };
 
 					$("#qbRightRushYards").html(JSON.parse(response.players[i].stats[14]));
+
 
           $("#qbRightTotalTD").html(totalTD);
 
