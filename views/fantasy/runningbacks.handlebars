@@ -116,15 +116,19 @@ $('#findRBLeft').on('click', function() {
 
           if (response.players[i].stats[20] === undefined) {
             $("#rbLeftReceptions").html("0");
+
+            var rbLeftRec = 0;
+          
           } else {
             $("#rbLeftReceptions").html(JSON.parse(response.players[i].stats[20]));
           };
 
           if (response.players[i].stats[21] === undefined) {
             $("#rbLeftPassYards").html("0");
-            var PassYards = 0;
+            var passYardsLeft = 0;
           } else {
             $("#rbLeftPassYards").html(JSON.parse(response.players[i].stats[21]));
+            
             var passYardsLeft = JSON.parse(response.players[i].stats[21] / 10);
           };
 
@@ -174,7 +178,7 @@ $('#findRBRight').on('click', function() {
             var RushYards = 0;
           } else {
             $("#rbRightRushYards").html(JSON.parse(response.players[i].stats[14]));
-            var rushYardsLeft = JSON.parse(response.players[i].stats[14] / 10);
+            var rushYardsRight = JSON.parse(response.players[i].stats[14] / 10);
           };
 
           if (response.players[i].stats[20] === undefined) {
@@ -185,10 +189,10 @@ $('#findRBRight').on('click', function() {
 
           if (response.players[i].stats[21] === undefined) {
             $("#rbRightPassYards").html("0");
-            var PassYards = 0;
+            var passYardsRight = 0;
           } else {
             $("#rbRightPassYards").html(JSON.parse(response.players[i].stats[21]));
-            var passYardsLeft = JSON.parse(response.players[i].stats[21] / 10);
+            var passYardsRight = JSON.parse(response.players[i].stats[21] / 10);
           };
 
           if (response.players[i].stats[22] === undefined) {
@@ -204,11 +208,16 @@ $('#findRBRight').on('click', function() {
           };
 					var totalTD = parseInt(catchTd) + parseInt(rushTD);
           $("#rbRightTotalTD").html(totalTD);
+          console.log(totalTD);
 
           var totalTDRight = totalTD * 6;
 
           var total = totalTDRight + passYardsRight + rushYardsRight;
           $("#rbRightPoints").html(total.toFixed(2));
+          console.log(totalTDRight);
+          console.log(passYardsRight);
+          console.log(rushYardsRight);
+
         }
       });
 
