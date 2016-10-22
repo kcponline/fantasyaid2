@@ -57,14 +57,12 @@
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
-                <td>Targets</td>
                 <td>Receptions</td>
                 <td>Pass Yards</td>
                 <td>Total TD's</td>
                 <td>Fantasy Points</td>
             </tr>
             <tr>
-                <td id="teRightTargets"></td>
                 <td id="teRightReceptions"></td>
                 <td id="teRightPassYards"></td>
                 <td id="teRightTds"></td>
@@ -132,6 +130,68 @@ $('#findTeLeft').on('click', function() {
                 console.log(teLeftPoints);
 
                 $("#teLeftPoints").html(teLeftPoints);
+
+            };
+    });
+
+
+
+
+
+    return false;
+});
+
+$('#findTeRight').on('click', function() {
+
+    var teRight = $('#teInputRight').val();
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(response) {
+        for (var i = 0; i < response.players.length; i++)
+            if (teRight == response.players[i].name) {
+
+                $("#teRightName").text(JSON.stringify(response.players[i].name));
+
+                if (response.players[i].stats[21] === undefined) {
+                    $("#teRightPassYards").html("0");
+
+                    var rightTePassYards = 0;
+
+                } else {
+                    $("#teRightPassYards").html(JSON.parse(response.players[i].stats[21]));
+
+                    var passYardsRight = JSON.parse(response.players[i].stats[21] / 25);
+                };
+
+
+                if (response.players[i].stats[20] === undefined) {
+                    $("#teRightReceptions").html("0");
+
+
+
+                } else {
+                    $("#teRightReceptions").html(JSON.parse(response.players[i].stats[20]));
+
+                    receptionPoints = JSON.parse(response.players[i].stats[20] * 0.25);
+
+
+                };
+
+                if (response.players[i].stats[22] === undefined) {
+                    $("#teRightTds").html("0");
+                } else {
+                    $("#teRightTds").html(JSON.parse(response.players[i].stats[22]));
+                    righttdPoints = JSON.parse(response.players[i].stats[22] * 6);
+
+
+                };
+
+                var teRightPoints = righttdPoints + receptionPoints + passYardsRight;
+                console.log(teRightPoints);
+
+                $("#teRightPoints").html(teRightPoints);
 
             };
     });
