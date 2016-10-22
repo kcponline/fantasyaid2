@@ -5,7 +5,7 @@
             <form id="quarterbackSearchLeft" action="D_Rank/update/qbLeftTeamAbbr?_method=PUT" method="POST">
                 <label for="quarterbackInputLeft">
                     <h3>Search Quarterback</h3></label>
-                <input type="text" id="quarterbackInputLeft">
+                <input type="text" id="quarterbackInputLeft" name="chosen" value="true">
                 <br>
                 <!-- This button will trigger our AJAX call -->
                 <input id="findQuarterbackLeft" type="submit" value="Find Quarterback" method="GET">
@@ -17,7 +17,7 @@
             <form id="quarterbackSearchRight" action="D_Rank/update/qbRightTeamAbbr?_method=PUT" method="POST">
                 <label for="quarterbackInputRight">
                     <h3>Search Quarterback</h3></label>
-                <input type="text" id="quarterbackInputRight">
+                <input type="text" id="quarterbackInputRight" value="true">
                 <br>
                 <!-- This button will trigger our AJAX call -->
                 <input id="findQuarterbackRight" type="submit" value="Find Quarterback">

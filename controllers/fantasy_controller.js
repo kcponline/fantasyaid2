@@ -41,7 +41,7 @@ router.get('/widereceivers', function(req, res) {
   res.render('fantasy/widereceivers');
 });
 
-router.put('/update/:id', function(req,res) {
+router.put('/update/:TeamAbbreviation', function(req,res) {
   // SOLUTION:
   // =========
   // use the Burger model to update a Burger's devoured status
@@ -49,7 +49,7 @@ router.put('/update/:id', function(req,res) {
   // and the id of the Burger (as passed in the url)
   models.Player.update(
   {
-    devoured: req.body.devoured
+    chosen: req.body.devoured
   },
   {
     where: { id : req.params.id }
