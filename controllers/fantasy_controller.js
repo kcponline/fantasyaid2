@@ -41,7 +41,23 @@ router.get('/widereceivers', function(req, res) {
   res.render('fantasy/widereceivers');
 });
 
-router.put('/update/:TeamAbbreviation', function(req,res) {
+router.post('/create', function (req, res) {
+  // SOLUTION:
+  // =========
+  // use the Burger model to create a Burger based on what's
+  // passed in req.body (burger_name, devoured, user_id)
+  models.Player.create({
+    player_name: req.body.player_name,
+    devoured: req.body.devoured,
+    user_id: req.session.user_id
+  })
+  // connect the .create to this .then
+  .then(function() {
+    res.redirect('/');
+  });
+});
+
+router.put('/update/:id', function(req,res) {
   // SOLUTION:
   // =========
   // use the Burger model to update a Burger's devoured status

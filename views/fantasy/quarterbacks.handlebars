@@ -2,22 +2,22 @@
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearchLeft" action="D_Rank/update/qbLeftTeamAbbr?_method=PUT" method="POST">
+            <form id="quarterbackSearchLeft" action="D_Rank/create" method="POST">
                 <label for="quarterbackInputLeft">
                     <h3>Search Quarterback</h3></label>
-                <input type="text" id="quarterbackInputLeft" name="chosen" value="true">
+                <input type="text" id="quarterbackInputLeft" name="player_name">
                 <br>
                 <!-- This button will trigger our AJAX call -->
-                <input id="findQuarterbackLeft" type="submit" value="Find Quarterback" method="GET">
+                <input id="findQuarterbackLeft" type="submit" value="Find Quarterback">
             </form>
         </div>
     </div>
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearchRight" action="D_Rank/update/qbRightTeamAbbr?_method=PUT" method="POST">
+            <form id="quarterbackSearchRight" action="D_Rank/create" method="POST">
                 <label for="quarterbackInputRight">
                     <h3>Search Quarterback</h3></label>
-                <input type="text" id="quarterbackInputRight" value="true">
+                <input type="text" id="quarterbackInputRight" name="player_name">
                 <br>
                 <!-- This button will trigger our AJAX call -->
                 <input id="findQuarterbackRight" type="submit" value="Find Quarterback">
@@ -51,6 +51,11 @@
 							<td id="qbLeftPoints"></td>
             </tr>
         </table>
+
+        <form action="D_Rank/update/qbLeftTeamAbbr?_method=PUT" method="POST">
+            <input type="hidden" name="devoured" value="true">
+            <button type="submit">Look at Next Week's Matchup</button>
+        </form>
         <!-- Table Scores -->
     </div>
     <!-- Module Content -->
@@ -100,9 +105,16 @@
               <td>Expected Fantasy Points</td>
             </tr>
             <tr>
-              <td id="qbLeftNextOpponent"></td>
-              <td id="qbLeftPassDefRank"></td>
-              <td id="qbLeftExpectedPoints"></td>
+              {{#each D_Rank}}
+                {{#if this.chosen}}
+                  <td>
+                    {{this.TeamAbbreviation}}
+                  </td>
+                  <td>
+                    {{this.PassDefRank}}
+                  </td>
+                {{/if}}
+              {{/each}}
             </tr>
         </table>
         <!-- Table Scores -->
