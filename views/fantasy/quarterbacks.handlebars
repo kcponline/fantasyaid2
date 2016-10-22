@@ -2,7 +2,7 @@
 <div class="m-12 bg-orange">
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearchRight" action="quarterback/search">
+            <form id="quarterbackSearchLeft" action="D_Rank/update/qbLeftTeamAbbr?_method=PUT" method="POST">
                 <label for="quarterbackInputLeft">
                     <h3>Search Quarterback</h3></label>
                 <input type="text" id="quarterbackInputLeft">
@@ -14,7 +14,7 @@
     </div>
     <div class="m-06 bg-orange">
         <div class="m-06 bg-orange">
-            <form id="quarterbackSearchRight" action="quarterback/search">
+            <form id="quarterbackSearchRight" action="D_Rank/update/qbRightTeamAbbr?_method=PUT" method="POST">
                 <label for="quarterbackInputRight">
                     <h3>Search Quarterback</h3></label>
                 <input type="text" id="quarterbackInputRight">
@@ -25,7 +25,6 @@
         </div>
     </div>
 </div>
-</div>
 <div class="m-06">
     <div class="module-content">
         <div class="title-default">
@@ -34,6 +33,7 @@
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
+              <td>Team Name</td>
 							<td>Completions/Attempts</td>
 							<td>Pass Yards</td>
 							<td>Rush Yards</td>
@@ -42,6 +42,7 @@
 							<td>Fantasy Points</td>
             </tr>
             <tr>
+              <td id="qbLeftTeamAbbr"></td>
 							<td id="qbLeftPassCompletionsAttempts"></td>
 							<td id="qbLeftPassYards"></td>
 							<td id="qbLeftRushYards"></td>
@@ -63,6 +64,7 @@
         <!-- Module Title -->
         <table class="table-scores">
             <tr class="t-header">
+              <td>Team Name</td>
               <td>Completions/Attempts</td>
               <td>Pass Yards</td>
               <td>Rush Yards</td>
@@ -71,12 +73,54 @@
               <td>Fantasy Points</td>
             </tr>
             <tr>
+              <td id="qbRightTeamAbbr"></td>
               <td id="qbRightPassCompletionsAttempts"></td>
               <td id="qbRightPassYards"></td>
               <td id="qbRightRushYards"></td>
               <td id="qbRightTotalTD"></td>
               <td id="qbRightINT"></td>
               <td id="qbRightPoints"></td>
+            </tr>
+        </table>
+        <!-- Table Scores -->
+    </div>
+    <!-- Module Content -->
+</div>
+
+<div class="m-06">
+    <div class="module-content">
+        <div class="title-default">
+            <h2 id="qbLeftNameNext"></h2>
+        </div>
+        <!-- Module Title -->
+        <table class="table-scores">
+            <tr class="t-header">
+              <td>Next Opponent</td>
+              <td>Pass Defense Rank</td>
+              <td>Expected Fantasy Points</td>
+            </tr>
+            <tr>
+              <td id="qbLeftNextOpponent"></td>
+              <td id="qbLeftPassDefRank"></td>
+              <td id="qbLeftExpectedPoints"></td>
+            </tr>
+        </table>
+        <!-- Table Scores -->
+    </div>
+    <!-- Module Content -->
+</div>
+
+<div class="m-06">
+    <div class="module-content">
+        <div class="title-default">
+            <h2 id="qbRightNameNext"></h2>
+        </div>
+        <!-- Module Title -->
+        <table class="table-scores">
+            <tr class="t-header">
+              <td>Next Opponent</td>
+              <td>Pass Defense Rank</td>
+              <td>Expected Fantasy Points</td>
             </tr>
         </table>
         <!-- Table Scores -->
@@ -96,6 +140,9 @@ $('#findQuarterbackLeft').on('click', function() {
 		$.ajax({url: queryURL, method: "GET"}).done(function(response) {
 			for (var i = 0; i < response.players.length; i++)
 			if (quarterbackLeft == response.players[i].name) {
+
+          var teamName = response.players[i].teamAbbr;
+          $("#qbLeftTeamAbbr").text(JSON.stringify(response.players[i].teamAbbr));
 
 					if (response.players[i].stats[6] === undefined) {
             var passTd = 0;

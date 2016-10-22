@@ -99,6 +99,7 @@ $('#findRBLeft').on('click', function() {
       if (rbLeft == response.players[i].name) {
 
           $("#rbLeftName").text(JSON.stringify(response.players[i].name));
+          var teamName = JSON.stringify(response.players[i].teamAbbr;
 
 					if (response.players[i].stats[13] === undefined) {
             $("#rbLeftRushes").html("0");

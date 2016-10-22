@@ -41,4 +41,25 @@ router.get('/widereceivers', function(req, res) {
   res.render('fantasy/widereceivers');
 });
 
+router.put('/update/:id', function(req,res) {
+  // SOLUTION:
+  // =========
+  // use the Burger model to update a Burger's devoured status
+  // based on the boolean passed in req.body devoured
+  // and the id of the Burger (as passed in the url)
+  models.Player.update(
+  {
+    devoured: req.body.devoured
+  },
+  {
+    where: { id : req.params.id }
+  })
+  // connect it to this .then.
+  .then(function (result) {
+    res.redirect('/');
+  }, function(rejectedPromiseError){
+
+  });
+});
+
 module.exports = router;
