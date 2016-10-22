@@ -50,6 +50,14 @@
             </tr>
         </table>
         <!-- Table Scores -->
+        <table class="table-scores">
+            <tr class="t-header">
+                <td>Our Prediction</td>
+            </tr>
+            <tr>
+                <td id="leftanalysis"></td>
+            </tr>
+        </table>
     </div>
     <!-- Module Content -->
 </div>
@@ -75,18 +83,12 @@
             </tr>
         </table>
         <!-- Who Should I start algorithm -->
-        <table class="table-scores">
+       <table class="table-scores">
             <tr class="t-header">
-                <td>Receptions</td>
-                <td>Pass Yards</td>
-                <td>Total TD's</td>
-                <td>Fantasy Points</td>
+                <td>Our Prediction</td>
             </tr>
             <tr>
-                <td id="teRightReceptions"></td>
-                <td id="teRightPassYards"></td>
-                <td id="teRightTds"></td>
-                <td id="teRightPoints"></td>
+                <td id="rightanalysis"></td>
             </tr>
         </table>
     </div>
@@ -154,6 +156,10 @@ $('#findWRleft').on('click', function() {
 
                 $("#teLeftPoints").html(teLeftPoints);
 
+                var projectedleft = JSON.parse(response.players[i].weekProjectedPts);
+
+                $("#leftanalysis").html("Our Analysis Projects " + projectedleft + " Points This Week");
+
             };
     });
 
@@ -217,6 +223,10 @@ $('#findWRright').on('click', function() {
                 console.log(teRightPoints);
 
                 $("#teRightPoints").html(teRightPoints);
+
+                var projectedright = JSON.parse(response.players[i].weekProjectedPts);
+
+                $("#rightanalysis").html("Our Analysis Projects " + projectedright + " Points This Week");
 
             };
     });

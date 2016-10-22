@@ -51,6 +51,15 @@
             </tr>
         </table>
         <!-- Table Scores -->
+        <table class="table-scores">
+            <tr class="t-header">
+                <td>Our Prediction</td>
+            </tr>
+            <tr>
+                <td id="leftanalysis"></td>
+            </tr>
+        </table>
+
     </div>
     <!-- Module Content -->
 </div>
@@ -80,6 +89,14 @@
           </tr>
         </table>
         <!-- Table Scores -->
+        <table class="table-scores">
+            <tr class="t-header">
+                <td>Our Prediction</td>
+            </tr>
+            <tr>
+                <td id="rightanalysis"></td>
+            </tr>
+        </table>
     </div>
     <!-- Module Content -->
 </div>
@@ -150,6 +167,10 @@ $('#findRBLeft').on('click', function() {
 
           var total = totalTDLeft + passYardsLeft + rushYardsLeft;
           $("#rbLeftPoints").html(total.toFixed(2));
+
+          var projectedleft = JSON.parse(response.players[i].weekProjectedPts);
+
+                $("#leftanalysis").html("Our Analysis Projects " + projectedleft + " Points This Week");
         }
       });
 
@@ -214,10 +235,10 @@ $('#findRBRight').on('click', function() {
 
           var total = totalTDRight + passYardsRight + rushYardsRight;
           $("#rbRightPoints").html(total.toFixed(2));
-          console.log(totalTDRight);
-          console.log(passYardsRight);
-          console.log(rushYardsRight);
+          
+          var projectedright = JSON.parse(response.players[i].weekProjectedPts);
 
+                $("#rightanalysis").html("Our Analysis Projects " + projectedright + " Points This Week");
         }
       });
 

@@ -46,6 +46,15 @@
             </tr>
         </table>
         <!-- Table Scores -->
+
+        <table class="table-scores">
+            <tr class="t-header">
+                <td>Our Prediction</td>
+            </tr>
+            <tr>
+                <td id="leftanalysis"></td>
+            </tr>
+        </table>
     </div>
     <!-- Module Content -->
 </div>
@@ -70,6 +79,14 @@
             </tr>
         </table>
         <!-- Table Scores -->
+        <table class="table-scores">
+            <tr class="t-header">
+                <td>Our Prediction</td>
+            </tr>
+            <tr>
+                <td id="rightanalysis"></td>
+            </tr>
+        </table>
     </div>
     <!-- Module Content -->
 </div>
@@ -119,6 +136,7 @@ $('#findTeLeft').on('click', function() {
 
                 if (response.players[i].stats[22] === undefined) {
                     $("#teLeftTds").html("0");
+                    lefttdPoints = 0;
                 } else {
                     $("#teLeftTds").html(JSON.parse(response.players[i].stats[22]));
                     lefttdPoints = JSON.parse(response.players[i].stats[22] * 6);
@@ -127,9 +145,14 @@ $('#findTeLeft').on('click', function() {
                 };
 
                 var teLeftPoints = lefttdPoints + receptionPoints + passYardsLeft;
-                console.log(teLeftPoints);
+                
 
-                $("#teLeftPoints").html(teLeftPoints);
+
+                $("#teLeftPoints").html(teLeftPoints.toFixed(2));
+
+                var projectedleft = JSON.parse(response.players[i].weekProjectedPts);
+
+                $("#leftanalysis").html("Our Analysis Projects " + projectedleft + " Points This Week");
 
             };
     });
@@ -181,6 +204,7 @@ $('#findTeRight').on('click', function() {
 
                 if (response.players[i].stats[22] === undefined) {
                     $("#teRightTds").html("0");
+                    righttdPoints = 0;
                 } else {
                     $("#teRightTds").html(JSON.parse(response.players[i].stats[22]));
                     righttdPoints = JSON.parse(response.players[i].stats[22] * 6);
@@ -191,7 +215,12 @@ $('#findTeRight').on('click', function() {
                 var teRightPoints = righttdPoints + receptionPoints + passYardsRight;
                 console.log(teRightPoints);
 
-                $("#teRightPoints").html(teRightPoints);
+                $("#teRightPoints").html(teRightPoints.toFixed(2));
+
+                var projectedright = JSON.parse(response.players[i].weekProjectedPts);
+
+                $("#rightanalysis").html("Our Analysis Projects " + projectedright + " Points This Week");
+
 
             };
     });
